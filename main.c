@@ -9,10 +9,6 @@ typedef struct {
 
 
 int main() {
-    SeqList seqList;
-    seqList.length = 0;
-//    insertList(seqList, 1, 200);
-    printf("%d", seqList.length);
     return 0;
 }
 
