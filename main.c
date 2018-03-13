@@ -8,8 +8,51 @@ typedef struct {
 } SeqList;
 
 
-int main() {
+typedef struct node {
+    DataType data;
+    struct node *next;
+} ListNode;
+typedef ListNode *LinkList;
 
+
+LinkList CreateListF() {
+    LinkList head;
+    ListNode *p;
+    char ch;
+    head = NULL;
+    ch = getchar();
+    while (ch != '\n') {
+        p = (ListNode *) __attribute_malloc__(sizeof(ListNode));
+        p->data = ch;
+        p->next = head;
+        head = p;
+        ch = getchar();
+    }
+
+    /*
+     *  1
+     * 2 3
+     *
+     */
+
+    return head;
+}
+
+
+ListNode SortTwoLink(LinkList la, LinkList lb) {
+    ListNode *lc, *headA, *headB;
+
+    headA = la;
+    headB = lb;
+    while (la->next == NULL && lb->next == NULL) {
+        lc = la->data > lb->data ? lb : la; // init
+        lc->next = la->data > lb->data ? la : lb; // second
+        lc = lc->next;
+    }
+}
+
+
+int main() {
     return 0;
 }
 
