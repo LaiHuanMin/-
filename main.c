@@ -44,7 +44,7 @@ ListNode *SortTwoLink(LinkList la, LinkList lb) {
 
     headA = la;
     headB = lb;
-    while (headA == NULL && headB == NULL) {
+    while (headA != NULL && headB != NULL) {
         lc = headA->data > headB->data ? headA : headB; // init
         lc->next = headA->data < headB->data ? headA : headB; // second
         lc = lc->next;
