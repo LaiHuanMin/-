@@ -39,16 +39,19 @@ LinkList CreateListF() {
 }
 
 
-ListNode SortTwoLink(LinkList la, LinkList lb) {
+ListNode *SortTwoLink(LinkList la, LinkList lb) {
     ListNode *lc, *headA, *headB;
 
     headA = la;
     headB = lb;
-    while (la->next == NULL && lb->next == NULL) {
-        lc = la->data > lb->data ? lb : la; // init
-        lc->next = la->data > lb->data ? la : lb; // second
+    while (headA == NULL && headB == NULL) {
+        lc = headA->data > headB->data ? headA : headB; // init
+        lc->next = headA->data < headB->data ? headA : headB; // second
         lc = lc->next;
+        headA = headA->next;
+        headB = headB->next;
     }
+    return lc;
 }
 
 
